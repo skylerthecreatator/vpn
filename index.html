@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RegentVPN Redirect</title>
+    <script>
+        window.onload = function() {
+            // Берем данные из ссылки бота после знака ?
+            var query = window.location.search.substring(1);
+            if (query) {
+                // Мгновенно перенаправляем смартфон в приложение WireGuard
+                window.location.href = "wireguard://import-config?" + query;
+            }
+            // Закрываем вкладку через пару секунд, если у пользователя открылся WG
+            setTimeout(function() { window.close(); }, 2000);
+        };
+    </script>
+</head>
+<body style="background:#1a1a1a; color:white; font-family:sans-serif; text-align:center; padding-top:20%;">
+    <h2>⚡ Перенаправление в WireGuard...</h2>
+    <p>Если приложение не открылось, убедитесь, что оно установлено.</p>
+</body>
+</html>
 
